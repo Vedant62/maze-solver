@@ -1,5 +1,8 @@
-# A simple factory class that imports and returns a relevant solver when provided a string
-# Not hugely necessary, but reduces the code in solve.py, making it easier to read.
+"""Factory that maps method strings to solver callables.
+
+Reduces conditional logic in `solve.py` and exposes a central list of
+available algorithms via `Choices`.
+"""
 
 class SolverFactory:
     def __init__(self):

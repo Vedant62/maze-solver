@@ -1,3 +1,11 @@
+"""
+Command-line entry for solving maze images with multiple algorithms.
+
+Features:
+- Identical CLI as original (method, input, output)
+- Optional live visualization (-v/--visualize)
+- Optional CSV logging of run metrics (--csv path)
+"""
 from PIL import Image
 import time
 from mazes import Maze
@@ -8,6 +16,16 @@ Image.MAX_IMAGE_PIXELS = None
 import argparse
 
 def solve(factory, method, input_file, output_file, visualize_enabled=False, csv_path=None):
+    """Run the selected solver on the provided image.
+
+    Args:
+        factory: `SolverFactory` instance used to create solvers.
+        method: Algorithm key, see `factory.Choices`.
+        input_file: Path to a black/white maze image.
+        output_file: Path to write the solved image.
+        visualize_enabled: If True, stream frontier/visited and final path to a window.
+        csv_path: If provided, append run metrics into this CSV file.
+    """
     # Load Image
     print ("Loading Image")
     im = Image.open(input_file)
@@ -111,6 +129,11 @@ def solve(factory, method, input_file, output_file, visualize_enabled=False, csv
 
 
 def main():
+    """Parse CLI args and execute one solve run.
+
+    The CLI mirrors the original behavior and adds optional flags for
+    visualization and CSV logging.
+    """
     sf = SolverFactory()
     parser = argparse.ArgumentParser()
     parser.add_argument("-m", "--method", nargs='?', const=sf.Default, default=sf.Default,

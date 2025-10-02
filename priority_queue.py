@@ -1,4 +1,11 @@
+"""Priority queue implementations used by solvers.
 
+Interfaces to a Fibonacci heap (`FibPQ`), a tuple-based binary heap
+(`HeapPQ`) and a `queue.PriorityQueue` wrapper (`QueuePQ`).
+
+All queues accept/return `FibHeap.Node` objects for consistency with
+the original implementation.
+"""
 from abc import ABCMeta, abstractmethod
 import itertools
 

@@ -1,3 +1,9 @@
+"""Maze graph constructed from a black/white input image.
+
+White pixels are traversable. Nodes are placed at junctions, turns,
+dead ends, start and end. Each node stores up to four neighbours in
+the order [North, East, South, West].
+"""
 class Maze:
     class Node:
         def __init__(self, position):
@@ -6,6 +12,12 @@ class Maze:
             #self.Weights = [0, 0, 0, 0]
 
     def __init__(self, im):
+        """Build a reduced node graph from the image.
+
+        The algorithm scans rows, creating nodes at corridor ends,
+        turns and junctions, and links vertical connections using a
+        row buffer.
+        """
 
         width = im.size[0]
         height = im.size[1]

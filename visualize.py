@@ -1,3 +1,11 @@
+"""Lightweight pygame-based visualization helpers.
+
+This module exposes global functions (`init`, `frontier`, `visit`,
+`draw_path_segment`, `finish`) used by solvers to stream their
+progress. If pygame isn't available or visualization is disabled,
+all functions become no-ops so normal runs are unaffected.
+"""
+
 try:
     import pygame
 except Exception:
@@ -39,7 +47,7 @@ class _PygameVisualizer:
 
         pygame.init()
         self.surface = pygame.Surface((width, height))
-        # load grayscale data from image and blit to surface
+        # Load grayscale into surface (white=paths, black=walls)
         pixels = im.convert('L').load()
         for y in range(height):
             for x in range(width):

@@ -1,3 +1,8 @@
+"""Depth-first search (DFS) solver.
+
+Emits visualization events (frontier and visit) when visualization is enabled
+at the top-level. Calls are no-ops otherwise.
+"""
 from collections import deque
 import visualize
 

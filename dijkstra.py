@@ -1,3 +1,8 @@
+"""Dijkstra's shortest path solver on Maze node graph.
+
+Uses a priority queue (FibPQ by default) and emits visualization events
+when enabled at the top level.
+"""
 from FibonacciHeap import FibHeap
 from priority_queue import FibPQ, HeapPQ, QueuePQ
 import visualize

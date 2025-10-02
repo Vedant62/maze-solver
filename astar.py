@@ -1,3 +1,8 @@
+"""A* search solver on Maze node graph.
+
+Heuristic: Manhattan distance. Uses FibPQ by default and emits
+visualization events when enabled at the top level.
+"""
 from FibonacciHeap import FibHeap
 from priority_queue import FibPQ, HeapPQ, QueuePQ
 import visualize
